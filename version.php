@@ -26,4 +26,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'tiny_generico';
 $plugin->release = '1.0.0';
-$plugin->version = 2023062200;
+$plugin->version = 2023100700;

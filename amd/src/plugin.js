@@ -16,7 +16,7 @@
 /**
  * Tiny tiny_generico for Moodle.
  *
- * @module      plugintype_pluginname/plugin
+ * @module      tiny_generico/plugin
  * @copyright   2023 Justin Hunt <justin@poodll.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

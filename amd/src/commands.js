@@ -16,7 +16,7 @@
 /**
  * Commands helper for the Moodle tiny_generico plugin.
  *
- * @module      plugintype_pluginname/commands
+ * @module      tiny_generico/commands
  * @copyright   2023 Justin Hunt <justin@poodll.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,10 +25,11 @@ import {getButtonImage} from 'editor_tiny/utils';
 import {get_string as getString} from 'core/str';
 import {
     component,
-    genericoButtonName,
-    genericoMenuItemName,
-    icon,
+    widgetsButtonName,
+    widgetsMenuItemName
 } from './common';
+import widget_selector from './widget_selector';
+import {getConfig} from "./options";
 
 /**
  * Handle the action for your plugin.
@@ -49,32 +50,39 @@ const handleAction = (editor) => {
  */
 export const getSetup = async() => {
     const [
-        genericoButtonNameTitle,
-        genericoMenuItemNameTitle,
-        buttonImage,
+        widgetsButtonNameTitle,
+        widgetsMenuItemNameTitle,
+        widgetsIcon,
     ] = await Promise.all([
-        getString('button_generico', component),
-        getString('menuitem_generico', component),
-        getButtonImage('icon', component),
+        getString('button_widgets', component),
+        getString('menuitem_widgets', component),
+        getButtonImage('widgets', component),
     ]);
 
     return (editor) => {
+
+
         // Register the Moodle SVG as an icon suitable for use as a TinyMCE toolbar button.
-        editor.ui.registry.addIcon(icon, buttonImage.html);
+        editor.ui.registry.addIcon('widgetsicon', widgetsIcon.html);
 
-        // Register the generico Toolbar Button.
-        editor.ui.registry.addButton(genericoButtonName, {
-            icon,
-            tooltip: genericoButtonNameTitle,
-            onAction: () => handleAction(editor),
-        });
+        // Register the widgets icon if its not disabled (via permissions)
+        var config = getConfig(editor);
+        if(!config.disabled) {
 
-        // Add the generico Menu Item.
-        // This allows it to be added to a standard menu, or a context menu.
-        editor.ui.registry.addMenuItem(genericoMenuItemName, {
-            icon,
-            text: genericoMenuItemNameTitle,
-            onAction: () => handleAction(editor),
-        });
+            // Register the widgets Toolbar Button.
+            editor.ui.registry.addButton(widgetsButtonName, {
+                icon: 'widgetsicon',
+                tooltip: widgetsButtonNameTitle,
+                onAction: () => widget_selector.display(editor),
+            });
+
+            // Add the widgets Menu Item.
+            // This allows it to be added to a standard menu, or a context menu.
+            editor.ui.registry.addMenuItem(widgetsMenuItemName, {
+                icon: 'widgetsicon',
+                text: widgetsMenuItemNameTitle,
+                onAction: () => widget_selector.display(editor),
+            });
+        }
     };
 };

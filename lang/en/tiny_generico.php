@@ -25,10 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['button_generico'] = 'Generico';
-$string['menuitem_generico'] = 'Generico';
+
+$string['button_widgets'] = 'Generico Widgets';
+$string['menuitem_widgets'] = 'Generico Widgets';
 $string['pluginname'] = 'Generico for TinyMCE';
 $string['privacy:metadata'] = 'Generico for TinyMCE does not store any personal data';
+$string['generico:visible'] = 'Visible';
 $string['creategenerico'] = 'Create generico';
 $string['settings'] = 'Generico (TinyMCE)';
 $string['browse'] = 'Browse';
@@ -43,6 +45,8 @@ $string['fieldsheader'] = 'Enter details for : ';
 $string['nofieldsheader'] = 'Insert : ';
 $string['chooseinsert'] = 'What do you want to insert?';
 $string['generico:visible'] = 'visible';
-$string['editoricon']='Editor Icon';
-$string['editoricon_desc']='The default icon on the TinyMCE editor for Generico is a grey G. You can change this by uploading a more appropriate icon here if you wish. Make it 16x16 pixels png and grey on a transparent background.';
 $string['privacy:metadata'] = 'The generico plugin does not store any personal data.';
+$string['insert'] = 'Insert';
+$string['back'] = 'Back';
+$string['widgetsselector'] = 'Widget Selector';
+$string['widgetsselector_instructions'] = 'Choose a widget to insert into the editor area.';

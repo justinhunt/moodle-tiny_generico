@@ -1,4 +1,3 @@
-<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -15,19 +14,26 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Modal for TinyMCE's Generico plugin.
  *
- *
- * @package   tiny_generico
- * @copyright 2023 Justin Hunt {@link http://www.poodll.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @module      tiny_generico/modal
+ * @copyright   2022 Andrew Lyons <andrew@nicols.co.uk>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace tiny_generico;
+import Modal from 'core/modal';
 
-defined('MOODLE_INTERNAL') || die;
+export default class extends Modal {
+    registerEventListeners() {
+        // Remove this Modal when it is closed.
+        // This must be called before registering any other event listeners.
+        this.setRemoveOnClose(true);
 
-class constants {
+        // Call the parent registration.
+        super.registerEventListeners();
 
-    const M_COMPONENT = 'tiny_generico';
-
+        // Register to close on save/cancel.
+        this.registerCloseOnSave();
+        this.registerCloseOnCancel();
+    }
 }

@@ -16,7 +16,7 @@
 /**
  * Options helper for the Moodle tiny_generico plugin.
  *
- * @module      plugintype_pluginname/options
+ * @module      tiny_generico/options
  * @copyright   2023 Justin Hunt <justin@poodll.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,7 +25,7 @@ import {getPluginOptionName} from 'editor_tiny/options';
 import {pluginName} from './common';
 
 // Helper variables for the option names.
-const editoriconName = getPluginOptionName(pluginName, 'editoricon');
+const genericoOpts = getPluginOptionName(pluginName, 'generico');
 
 /**
  * Options registration function.
@@ -37,15 +37,14 @@ export const register = (editor) => {
 
     // For each option, register it with the editor.
     // Valid type are defined in https://www.tiny.cloud/docs/tinymce/6/apis/tinymce.editoroptions/
-    registerOption(editoriconName, {
-        processor: 'string',
+    registerOption(genericoOpts, {
+        processor: 'object',
     });
 };
 
 /**
- * Fetch the editoricon value for this editor instance.
- *
+ * Fetch the requested datavalue
  * @param {tinyMCE} editor The editor instance to fetch the value for
- * @returns {object} The value of the editoricon option
+ * @returns {object} The value of the audioallowed option
  */
-export const getEditoricon = (editor) => editor.options.get(editoriconName);
+export const getConfig = (editor) => editor.options.get(genericoOpts);

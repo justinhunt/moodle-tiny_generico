@@ -16,7 +16,7 @@
 /**
  * Common values helper for the Moodle tiny_generico plugin.
  *
- * @module      plugintype_pluginname/common
+ * @module      tiny_generico/common
  * @copyright   2023 Justin Hunt <justin@poodll.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,6 +27,6 @@ export default {
     component,
     pluginName: `${component}/plugin`,
     icon: component,
-    genericoButtonName: `${component}_generico`,
-    genericoMenuItemName: `${component}_generico`,
+    widgetsButtonName: `${component}_widgets`,
+    widgetsMenuItemName: `${component}_widgets`,
 };

@@ -16,15 +16,12 @@
 /**
  * Tiny tiny_generico for Moodle.
  *
- * @module      plugintype_pluginname/plugin
+ * @module      tiny_generico/configuration
  * @copyright   2023 Justin Hunt <justin@poodll.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-import {
-    genericoButtonName,
-    genericoMenuItemName,
-} from './common';
+import {widgetsButtonName, widgetsMenuItemName}from './common';
 
 import {
     addMenubarItem,
@@ -34,7 +31,7 @@ import {
 const getToolbarConfiguration = (instanceConfig) => {
     let toolbar = instanceConfig.toolbar;
     toolbar = addToolbarButtons(toolbar, 'content', [
-        genericoButtonName,
+        widgetsButtonName,
     ]);
 
     return toolbar;
@@ -42,8 +39,8 @@ const getToolbarConfiguration = (instanceConfig) => {
 
 const getMenuConfiguration = (instanceConfig) => {
     let menu = instanceConfig.menu;
-    menu = addMenubarItem(menu, 'content', [
-        genericoMenuItemName,
+    menu = addMenubarItem(menu, 'insert', [
+        widgetsMenuItemName,
     ].join(' '));
 
     return menu;
