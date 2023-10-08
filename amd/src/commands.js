@@ -63,7 +63,7 @@ export const getSetup = async() => {
 
 
         // Register the Moodle SVG as an icon suitable for use as a TinyMCE toolbar button.
-        editor.ui.registry.addIcon('widgetsicon', widgetsIcon.html);
+        editor.ui.registry.addIcon('genericowidgetsicon', widgetsIcon.html);
 
         // Register the widgets icon if its not disabled (via permissions)
         var config = getConfig(editor);
@@ -71,7 +71,7 @@ export const getSetup = async() => {
 
             // Register the widgets Toolbar Button.
             editor.ui.registry.addButton(widgetsButtonName, {
-                icon: 'widgetsicon',
+                icon: 'genericowidgetsicon',
                 tooltip: widgetsButtonNameTitle,
                 onAction: () => widget_selector.display(editor),
             });
@@ -79,7 +79,7 @@ export const getSetup = async() => {
             // Add the widgets Menu Item.
             // This allows it to be added to a standard menu, or a context menu.
             editor.ui.registry.addMenuItem(widgetsMenuItemName, {
-                icon: 'widgetsicon',
+                icon: 'genericowidgetsicon',
                 text: widgetsMenuItemNameTitle,
                 onAction: () => widget_selector.display(editor),
             });

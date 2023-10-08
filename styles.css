@@ -1,59 +1,19 @@
-.tiny_poodll_button .dropdown-menu {
+.tiny_generico_button .dropdown-menu {
     min-width: inherit;
 }
-.history-row .inplaceeditable input[type="text"] {
-    width: 90%;
-}
 
-.tiny_poodll_iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-#id_responsive_tiny_poodll_audio_cont,
-#id_responsive_tiny_poodll_upload_cont {
-    position: relative;
-    overflow: hidden;
-    padding-top: 78%;
-}
-@media (min-width: 450px) {
-    #id_responsive_tiny_poodll_audio_cont,
-    #id_responsive_tiny_poodll_upload_cont {
-        padding-top: 350px;
-    }
-}
-#id_responsive_tiny_poodll_video_cont,
-#id_responsive_tiny_poodll_screen_cont{
-    position: relative;
-    overflow: hidden;
-    padding-top: 123%;
-}
-
-@media (min-width: 440px) {
-    #id_responsive_tiny_poodll_video_cont,
-    #id_responsive_tiny_poodll_screen_cont {
-        position: relative;
-        overflow: hidden;
-        padding-top: 540px;
-    }
-}
-
-div.tiny_poodll_widget_buttons {
+div.tiny_generico_widget_buttons {
     display: inline-block;
     margin: 5px;
 }
-.tiny_poodll_widgetlabel {
+.tiny_generico_widgetlabel {
     padding: 10px;
 }
-.tiny_poodll_widget_field {
+.tiny_generico_widget_field {
     margin-top: 5px;
 }
 /* widget options CSS */
-#tiny_poodll_widgets_selectorpanel {
+#tiny_generico_widgets_selectorpanel {
    /* width: 300px; */
    /* height: 200px; */
     /* position: absolute; */
@@ -62,7 +22,7 @@ div.tiny_poodll_widget_buttons {
     transition: left 0.8s ease-in-out, right 0.8s ease-in-out;
 }
 
-#tiny_poodll_widgets_optionspanel {
+#tiny_generico_widgets_optionspanel {
     /* width: 300px; */
     /* height: 200px; */
     /* position: absolute; */
@@ -71,15 +31,15 @@ div.tiny_poodll_widget_buttons {
     transition: left 0.8s ease-in-out, right 0.8s ease-in-out;
 }
 
-.tiny_poodll_widgetoptionsbuttons_cont{
+.tiny_generico_widgetoptionsbuttons_cont{
     margin: 10px;
     margin-left: 100px;
 }
-.tiny_poodll_widgetoptionlabel {
+.tiny_generico_widgetoptionlabel {
     padding: 10px;
     width: 100px;
 }
 
-.tiny_poodll_hidden {
+.tiny_generico_hidden {
     display: none;
 }
