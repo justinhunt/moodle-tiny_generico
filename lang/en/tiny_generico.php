@@ -31,6 +31,7 @@ $string['menuitem_widgets'] = 'Generico Widgets';
 $string['pluginname'] = 'Generico for TinyMCE';
 $string['privacy:metadata'] = 'Generico for TinyMCE does not store any personal data';
 $string['generico:visible'] = 'Visible';
+$string['generico:use'] = 'Use Generico widgets from TinyMCE';
 $string['creategenerico'] = 'Create generico';
 $string['settings'] = 'Generico (TinyMCE)';
 $string['browse'] = 'Browse';
