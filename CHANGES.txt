@@ -1,3 +1,7 @@
+Version 1.0.5 (Build 2026042000)
+- Updated to require Moodle 4.3
+- Removed modal_factory and modal_registry calls
+
 Version 1.0.4 (Build 2025100500)
 - Tidy up installation settings
 

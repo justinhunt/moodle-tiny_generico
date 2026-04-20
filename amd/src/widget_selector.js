@@ -24,11 +24,11 @@
 import Log from 'core/log';
 import {getConfig} from './options';
 
-import * as ModalFactory from 'core/modal_factory';
+
 import * as Templates from 'core/templates';
 import {prefetchStrings, prefetchTemplates} from 'core/prefetch';
 import Modal from "./modal";
-import ModalRegistry from 'core/modal_registry';
+
 
 import {
     component,
@@ -270,19 +270,10 @@ export default class {
     }
 
     static getModalClass() {
-        const modalType = `${component}/widgetselector`;
-        const registration = ModalRegistry.get(modalType);
-        if (registration) {
-            return registration.module;
-        }
-
-        const WidgetModal = class extends Modal {
-            static TYPE = modalType;
+        return class extends Modal {
+            static TYPE = `${component}/widgetselector`;
             static TEMPLATE = `${component}/widgetselector`;
         };
-
-        ModalRegistry.register(WidgetModal.TYPE, WidgetModal, WidgetModal.TEMPLATE);
-        return WidgetModal;
     }
 
     static getModalContext(editor) {
@@ -305,8 +296,7 @@ export default class {
         const templatecontext = this.getModalContext(editor);
         const elementid = this.generateRandomString();
 
-        const modal = await ModalFactory.create({
-            type: ModalClass.TYPE,
+        const modal = await ModalClass.create({
             templateContext: templatecontext,
             large: true,
         });
