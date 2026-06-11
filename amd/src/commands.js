@@ -67,6 +67,13 @@ export const getSetup = async() => {
 
         // Register the widgets icon if its not disabled (via permissions)
         var config = getConfig(editor);
+
+        // If we don't have a config, then we can't register the buttons, so just return here.
+        // This would happen if filter_generico was not installed
+        if (!config) {
+            return;
+        }
+
         if(!config.disabled) {
 
             // Register the widgets Toolbar Button.

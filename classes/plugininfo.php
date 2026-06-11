@@ -63,6 +63,7 @@ class plugininfo extends plugin implements plugin_with_configuration, plugin_wit
         // On first install $config has nothing but "version", and the rest of this function would throw debug warnings
         // So we just cancel out here.
         if (!$genericoconfig || count(get_object_vars($genericoconfig)) < 1) {
+            $params['widgets'] = [];
             return $params;
         }
 
