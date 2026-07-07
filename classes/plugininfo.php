@@ -112,6 +112,9 @@ class plugininfo extends plugin implements plugin_with_configuration, plugin_wit
         }
         // Put our template into a form thats easy to process in JS.
         for ($tempindex = 1; $tempindex < $templatecount; $tempindex++) {
+            if (!empty($templates['templatehidden_' . $tempindex])) {
+                continue;
+            }
             if (
                 empty($templates['template_' . $tempindex]) &&
                 empty($templates['templatescript_' . $tempindex]) &&
