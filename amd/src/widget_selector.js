@@ -215,7 +215,7 @@ export default class {
      */
     getFilterString(widget) {
 
-        var retstring = "{GENERICO:type=";
+        var retstring = "{" + widget.filtertag + ":type=";
         var widgetkey = widget.key;
         var thevariables = widget.variables;
         var thedefaults = widget.defaults;
@@ -248,7 +248,7 @@ export default class {
 
         //add an end tag, if we need to
         if (theend) {
-            retstring += '<br/>{GENERICO:type="' + widgetkey + '_end"}';
+            retstring += '<br/>{' + widget.filtertag + ':type="' + widgetkey + '_end"}';
         }
         return retstring;
 
