@@ -51,3 +51,5 @@ $string['insert'] = 'Insert';
 $string['back'] = 'Back';
 $string['widgetsselector'] = 'Widget Selector';
 $string['widgetsselector_instructions'] = 'Choose a widget to insert into the editor area.';
+$string['g1widgets_title'] = "Generico";
+$string['g2widgets_title'] = "Generico Two";

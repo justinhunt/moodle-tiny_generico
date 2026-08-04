@@ -1,3 +1,6 @@
+Version 1.0.6 (Build 2026080400)
+- Added code support G2 filter
+
 Version 1.0.5 (Build 2026042000)
 - Updated to require Moodle 4.3
 - Removed modal_factory and modal_registry calls

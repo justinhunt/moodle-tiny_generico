@@ -22,11 +22,11 @@
  */
 
 import Log from 'core/log';
-import {getConfig} from './options';
+import { getConfig } from './options';
 
 
 import * as Templates from 'core/templates';
-import {prefetchStrings, prefetchTemplates} from 'core/prefetch';
+import { prefetchStrings, prefetchTemplates } from 'core/prefetch';
 import Modal from "./modal";
 
 
@@ -48,7 +48,7 @@ export default class {
      * @param {Modal} modal The Moodle Modal that contains the interface used for recording
      * @param {config} config The data passed to template and used internally for managing plugin state
      */
-    constructor(editor,elementid, modal, config) {
+    constructor(editor, elementid, modal, config) {
         this.ready = false;
         this.editor = editor;
         this.elementid = elementid;
@@ -57,7 +57,7 @@ export default class {
         this.modalRoot = modal.getRoot()[0];
     }
 
-    init(){
+    init() {
         this.registerEvents();
         this.ready = true;
     }
@@ -71,7 +71,7 @@ export default class {
         this.modal.hide();
     }
 
-    getElement(component){
+    getElement(component) {
         return this.modalRoot.querySelector('#' + this.elementid + '_' + component);
     }
 
@@ -79,13 +79,13 @@ export default class {
      * Register event listeners for the modal.
      */
     registerEvents() {
-        var that =this;
+        var that = this;
         const $root = this.modal.getRoot();
         const root = $root[0];
         //const widgetbuttons = root.getElementsByClassName('tiny_generico_widgetbutton');
 
         ///listen for button clicks
-        root.addEventListener("click", function(e) {
+        root.addEventListener("click", function (e) {
             var widgetchosen = e.target.closest(".tiny_generico_widgetchoosebutton");
             var widgetinserted = e.target.closest(".tiny_generico_widgetinsertbutton");
             var widgetcancelled = e.target.closest(".tiny_generico_widgetcancelledbutton");
@@ -141,9 +141,15 @@ export default class {
 
     getWidget(templateindex) {
         var widget = null;
-        for (var i = 0; i < this.config.widgets.length; i++) {
-            if (this.config.widgets[i].templateindex == templateindex) {
-                widget = this.config.widgets[i];
+        // Build a single widgets array out of the G1 Widgets and G2 Widgets.
+        var thewidgets = this.config.widgets.g1widgets ? this.config.widgets.g1widgets : [];
+        if (this.config.widgets.g2widgets) {
+            thewidgets = thewidgets.concat(this.config.widgets.g2widgets);
+        }
+        // Loop through the widgets looking for the selected one.
+        for (var i = 0; i < thewidgets.length; i++) {
+            if (thewidgets[i].templateindex == templateindex) {
+                widget = thewidgets[i];
                 break;
             }
         }
@@ -178,10 +184,10 @@ export default class {
             selectorpanel.classList.add('tiny_generico_hidden');
             optionspanel.classList.remove('tiny_generico_hidden');
             //trigger the animations
-            optionspanel.style.left=0;
-            selectorpanel.style.left= selectorpanel.offsetWidth * -1 + 'px';
+            optionspanel.style.left = 0;
+            selectorpanel.style.left = selectorpanel.offsetWidth * -1 + 'px';
         }).catch(
-            function (e){Log.debug(e);}
+            function (e) { Log.debug(e); }
         );
 
     }
@@ -203,8 +209,8 @@ export default class {
         selectorpanel.classList.remove('tiny_generico_hidden');
         optionspanel.classList.add('tiny_generico_hidden');
         //trigger the animations
-        optionspanel.style.left=optionspanel.offsetWidth  +  'px';
-        selectorpanel.style.left=0;
+        optionspanel.style.left = optionspanel.offsetWidth + 'px';
+        selectorpanel.style.left = 0;
     }
 
     /**
@@ -226,21 +232,21 @@ export default class {
 
         //add variables to return string
         for (var i = 0; i < thevariables.length; i++) {
-            var thevalue=null;
-            var elements=null;
+            var thevalue = null;
+            var elements = null;
             //if select box
-            if(thevariables[i].isarray) {
+            if (thevariables[i].isarray) {
                 elements = this.modalRoot.querySelectorAll('select[data-type="' + thevariables[i].key + '"]');
-            //if input box
-            }else{
+                //if input box
+            } else {
                 elements = this.modalRoot.querySelectorAll('input[data-type="' + thevariables[i].key + '"]');
             }
             if (elements.length > 0) {
                 thevalue = elements[0].value;
             }
-           if(thevalue!==null){
-               retstring += ',' + thevariables[i].key + '="' + thevalue + '"';
-           }
+            if (thevalue !== null) {
+                retstring += ',' + thevariables[i].key + '="' + thevalue + '"';
+            }
         }
 
         //close out return string
@@ -281,7 +287,7 @@ export default class {
         var context = {};
         var config = getConfig(editor);
         Log.debug(config);
-        
+
         //stuff declared in common
         context.CSS = CSS;
 

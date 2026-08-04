@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'tiny_generico';
-$plugin->release = '1.0.6 (Build 2026070700)';
+$plugin->release = '1.0.6 (Build 2026080400)';
 $plugin->maturity = MATURITY_STABLE;
 $plugin->requires = 2023100900; // Requires Moodle 4.3
-$plugin->version = 2026070700;
+$plugin->version = 2026080400;

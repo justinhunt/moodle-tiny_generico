@@ -71,27 +71,32 @@ class plugininfo extends plugin implements plugin_with_configuration, plugin_wit
         // so an inserted tag is never dead text.
         $activefilters = filter_get_active_in_context($context);
 
+        $widgets = new \stdClass();
+
         // Classic Generico templates (config-based).
-        $widgets = [];
+        $g1widgets = [];
         if (array_key_exists('generico', $activefilters)) {
             $genericoconfig = get_config('filter_generico');
             if (!empty($genericoconfig->version)) {
-                $widgets = self::get_widgets_for_js();
+                $g1widgets = self::get_widgets_for_js();
             }
         }
 
         // Generico Two templates (DB-based).
+        $g2widgets = [];
         if (array_key_exists('genericotwo', $activefilters)
                 && !empty(get_config('filter_genericotwo', 'version'))) {
             $g2widgets = self::get_genericotwo_widgets_for_js($context);
-            // When both filters contribute, flag the first G2 widget so the
-            // selector template renders an <hr/> between the two groups.
-            if (!empty($widgets) && !empty($g2widgets)) {
-                $g2widgets[0]->showseparator = true;
-            }
-            $widgets = array_merge($widgets, $g2widgets);
         }
 
+        $widgets->g1widgets = empty($g1widgets) ? false : $g1widgets;
+        $widgets->g2widgets = empty($g2widgets) ? false : $g2widgets;
+
+        // When both filters contribute, we want to show a label and separator
+        // to distinguish between the two types of widgets.
+        if ($widgets->g1widgets && $widgets->g2widgets) {
+            $widgets->showlabelsandseparator = true;
+        }
         $params['widgets'] = $widgets;
 
         return ['generico' => $params];
