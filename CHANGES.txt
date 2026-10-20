@@ -1,3 +1,7 @@
+Version 1.0.7 (Build 2026102000)
+- Added camp-registry listing and release workflow
+- Declared supported Moodle versions (4.3 to 5.2)
+
 Version 1.0.6 (Build 2026080400)
 - Added code support G2 filter
 

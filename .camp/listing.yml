@@ -1,0 +1,30 @@
+# camp listing manifest — the descriptive content for this plugin's page.
+# Edit freely and commit; camp ingests and hash-pins it at each tagged release.
+# Schema: https://camp-registry.org/schema/listing.schema.json
+name: Generico for TinyMCE
+summary: Insert Generico filter widgets from a button on Moodle's TinyMCE editor toolbar.
+description: |
+  The **Generico Widgets** button on the TinyMCE toolbar works with the Generico filter to provide
+  a simple way to insert Generico filter strings into Moodle. Instead of typing filter strings by
+  hand, teachers pick a widget from a dialog, fill in a short settings form, and a correctly formed
+  filter string is inserted into the text.
+
+  Supports templates from both generations of the filter:
+
+  - **Generico** (`filter_generico`) — the classic, config-based filter, using `{GENERICO:...}` strings.
+  - **Generico Two** (`filter_genericotwo`) — the database-backed filter with Mustache templates,
+    using `{G2:...}` strings.
+
+  Either filter (or both) can be installed. The widget picker lists whichever templates are
+  available, in labelled groups when both filters contribute. Only relevant widgets are offered:
+  templates from filters that are not active in the current context are skipped, hidden templates
+  are not shown, and Generico Two templates honour their own per-context restrictions.
+
+  Requires Moodle 4.3 or later and at least one of the Generico filters. Free, with no external
+  services or API credentials needed.
+labels:
+  - fully-free
+category: tiny
+links:
+  issues: https://github.com/justinhunt/moodle-tiny_generico/issues
+  changelog: https://github.com/justinhunt/moodle-tiny_generico/blob/master/CHANGES.txt
